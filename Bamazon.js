@@ -70,7 +70,7 @@ message: "To which department does the product belong?"
 
 
   ]).then(function(answers){
-   newName = 
+   
 // [ answers.newName, answers.newStock,answers.newPrice, answers.newDepartment]  
 connection.query("INSERT INTO products (product_name, department_name, price, stock), VALUES =" + "(" + "'" + answers.newName + "'" + "," + answers.newStock + "," + answers.newPrice +"," + "'" + answers.newDepartment + "'" + ");",
   function (err,results,field){

@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
   // Your username
   user: "root",
   // Your password
-  password: "Raichu88",
+  password: "root",
   database: "Bamazon_db"
 });
 
@@ -72,15 +72,15 @@ message: "To which department does the product belong?"
   ]).then(function(answers){
    
 // [ answers.newName, answers.newStock,answers.newPrice, answers.newDepartment]  
-connection.query("INSERT INTO products (product_name, department_name, price, stock), VALUES =" + "(" + "'" + answers.newName + "'" + "," + answers.newStock + "," + answers.newPrice +"," + "'" + answers.newDepartment + "'" + ");",
+connection.query("INSERT INTO products (product_name, department_name, price, stock) VALUES" + "(" + "'" + answers.newName + "'" + "," + "'" + answers.newDepartment + "'" +  ","  + answers.newStock + "," + answers.newPrice  + ");",
   function (err,results,field){
     if (err) throw err;
   });
+    console.log('Successfully added.' + " Product " + answers.newName + " Department " + answers.newDepartment + " Price " + answers.newPrice 
+    + " Quantity " + answers.newStock + " Exiting Bamazon. Thanks! " );
+  connection.end();
 
-
-  });
-
-
+});
 };
 
 
